@@ -1,5 +1,6 @@
 package com.example.simpleparadox.listycity;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -23,6 +24,19 @@ public class CityList {
     }
 
     /**
+     * This deletes a city from the list of cities
+     * If the city does not exist throws an exception
+     * @param city
+     *      This is a candidate city to delete from the list
+     */
+    public void delete(City city) {
+        if(!cities.contains(city)) {
+            throw new IllegalArgumentException();
+        }
+        cities.remove(city);
+    }
+
+    /**
      * This returns a sorted list of cities
      * @return
      *      Return the sorted list
@@ -31,6 +45,15 @@ public class CityList {
         List<City> list = cities;
         Collections.sort(list);
         return list;
+    }
+
+    /**
+     * This returns the size of the list of cities
+     * @return
+     *     Return the size of list
+     */
+    public  int getCitiesSize() {
+        return  cities.size();
     }
 
 }
